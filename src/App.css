@@ -5,12 +5,11 @@
 
 h1{
     text-align: center;
-    margin: 40px;
+    margin-top: 30px;
 }
 
 .thumbnail-container{
     display: flex;
     align-items: center;
     justify-content: center;
-  
 }
