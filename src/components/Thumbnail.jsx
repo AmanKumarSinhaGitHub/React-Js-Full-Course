@@ -2,15 +2,15 @@
 import "./thumbnail.css";
 
 // Define the Thumbnail component, which accepts props for videoLink, title, views, and timeDuration
-function Thumbnail({ videoLink, title, views, timeDuration }) {
+function Thumbnail({ videoID, title, views, timeDuration, channelName, isVarified}) {
 
   return (
     <>
-      <div className="container">
+      <div className="thumbnail-container">
   
         <div className="imgContainer">
           {/* Display a random image with alt text */}
-          <img src={videoLink} alt="random-img" />
+          <img src={`https://picsum.photos/id/${videoID}/320/180`} alt="random-img" />
         </div>
 
         <div className="textContainer">
@@ -18,8 +18,9 @@ function Thumbnail({ videoLink, title, views, timeDuration }) {
           {/* Display the title using the 'title' prop */}
           <h2>{title}</h2>
 
-          {/* Display a welcoming message using the 'title' prop */}
-          <p>Welcome to {title}</p>
+          {/* Display a channel name using the 'channelName' prop */}
+          {/* If channel is varified (isVarified=true) then add ✅ varified mark also  */}
+          <p>{channelName} {isVarified && '✅'}</p>
 
           {/* Display the number of views and the time duration using 'views' and 'timeDuration' props */}
           <p>

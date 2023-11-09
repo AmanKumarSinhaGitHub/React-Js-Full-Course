@@ -3,9 +3,9 @@
     padding: 0;
 }
 
-.container{
+.thumbnail-container{
     width: 30vw;
-    height: 300px;
+    height: 260px;
     margin: 10px;
 }
 
@@ -17,6 +17,6 @@
 }
 
 .textContainer{
-   text-align: center;
+   margin-left: 32px;
 }
 
