@@ -1,3 +1,34 @@
 # Resume Builder
 
-Assignment 1 : Create a simple React app for RESUME Builder. It will be static website. You have to make components like Resume as top level and under it - Skills, Education, Experience etc as components. All resume data will be under 1 big JavaScript object like which you can us in components via props. You can fix the number of items in Skills, Education, Experience or any section. Example you can say that only 3 experience items is allowed.
+Create a simple static React app for a Resume Builder. The app should consist of components for Resume, Skills, Education, and Experience, with data provided through a JavaScript object.
+
+```js
+const details = {
+  name: "Aman Kumar Sinha",
+  experience: [
+    {
+      year: 2023,
+      company: "xyz",
+      role: "Frontend Developer",
+    },
+
+    {
+      year: 2022,
+      company: "abc",
+      role: "Backend Developer",
+    },
+  ],
+  education: [
+    {
+      year: 2020,
+      college: "Sahyogi High School",
+    },
+
+    {
+      year: 2023,
+      college: "R.N. College",
+    },
+  ],
+  skills: ["react js", "node js", "express", "mongodb"],
+};
+```
