@@ -1,5 +1,5 @@
 // Import the CSS styles for the Thumbnail component
-import "./thumbnail.css";
+import "./Thumbnail.css";
 
 // Define the Thumbnail component, which accepts props for videoLink, title, views, and timeDuration
 function Thumbnail({ videoID, title, views, timeDuration, channelName, isVarified}) {
@@ -10,7 +10,7 @@ function Thumbnail({ videoID, title, views, timeDuration, channelName, isVarifie
   
         <div className="imgContainer">
           {/* Display a random image with alt text */}
-          <img src={`https://picsum.photos/id/${videoID}/320/180`} alt="random-img" />
+          <img className="image" src={`https://picsum.photos/id/${videoID}/320/180`} alt="random-img" />
         </div>
 
         <div className="textContainer">
