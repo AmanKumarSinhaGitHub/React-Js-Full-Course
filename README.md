@@ -1,49 +1,16 @@
-# React Full Course
+# List of assignment
 
-This is the full react js course. 
+Assignment 1 : Make a simple page with 1 Image, 1button, 1 form Input text box and try to apply these events .
 
-### How to use this code :
+Image : onMouseOver : when you hover on image. Image should increase in size. Think of any way where you can do it. Also, try that when you "move out" the mouse, it should be back to normal size.
+Button : onDoubleClick: when you doubleClick a button. show some alert box. Also make a console.log for single click event. Is console.log printed twice on double click ? check this ?
+Input Textbox : onFocus, onBlur are 2 events which occur when you enter or exit an input text box by click of mouse etc. Use it to display some console.log, which print "focused on the textbox", "out of textbox".
+onCopy, onCut, onPaste are 3 events which you can use on any text value etc. try to use it on a paragraph and just alert the user that something is copied, cut or pasted.
+Assignment 2 : Make a form using < Form> tag and put an textbox and button inside this form. try to click the button after entering into textbox. Does form reloads ? Can you try to stop is using e.preventDefault. Try it.
 
-   - use `git clone https://github.com/AmanKumarSinhaGitHub/React-Js-Full-Course.git`
+Assignment 3 : use an Input Textbox : after you enter some text. try to press ENTER button and show the an alert or console.log. You can capture the onKeyPress event, button how you will you make it work only for "Enter" ? It should not work on pressing of other keys. [Hint: Explore the synthetic event object ]
 
-   - checkout branch according to Chapter number `git checkout react-ch-1`
+Assignment 4 : This is continuation of previous assignment RESUME Builder.
 
-   - run `npm install` inside the root directory before running the code
-
-### Chapter will be covered in the course are given below.
-
-- Chapter 1 - Introduction to React & Setup
-
-- Chapter 2 - Components - JSX and Props
-
-- Chapter 3 - Conditional Rendering & Lists
-
-- Chapter 4 - Events && Event Bubbling
-
-- Chapter 5 - State, useState Hooks
-
-- Chapter 6 - Form , Synthetic Event Object & Lifting State up
-
-- Chapter 7 - More State & useEffect hooks
-
-- Chapter 8 - useReducer
-
-- Chapter 9 - Context API & useContext
-
-- Chapter 10 - Context API with useReducer [Redux architecture]
-
-- Chapter 11 - useRef
-
-- Chapter 12 - useEffect and API calling
-
-- Chapter 13 - Memoization - useMemo, useCallback, memo
-
-- Chapter 14 - Advanced React - Part 1
-
-- Chapter 15 - Advanced React - Part 2
-
-### Create React Js app using Vite
-
-```
-npm create vite@latest  
-```
+Add a print button to print the current resume. You can use a DOM method window.print to print the PDF.
+Assignment 5 : Can you try the challenge of passing the function in one Prop like onPlay and the message inside that function to be accessed from other prop message [ As shown in Chapter Video ]
