@@ -7,3 +7,27 @@
   width: 100%;
   margin-top: 50px;
 }
+
+.image{
+  width: 200px;
+}
+
+.increaseSize{
+  width: 300px;
+}
+
+
+
+.btn{
+  background-color: rgb(88, 88, 200);
+  margin: 15px;
+  padding: 10px;
+  font-size: large;
+  border-style: none;
+  border-radius: 5px;
+}
+
+.input{
+  margin-top: 15px;
+  padding: 10px;
+}
