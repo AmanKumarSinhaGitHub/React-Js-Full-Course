@@ -95,15 +95,23 @@ a {
 
 
 .btn {
-  margin-left: 300px;
-  padding: 8px;
+  display: inline;
+  padding: 0.6em;
   border-style: none;
   background-color: rgb(72, 72, 205);
   color: white;
-  border-radius: 5px;
+  border-radius: 0.5em;
   font-weight: bold;
 }
 
+
+.mode {
+  margin-left: 2%; 
+}
+
+.print {
+  margin-left: 30%;
+}
 
 .light-theme {
   /* Light theme styles */

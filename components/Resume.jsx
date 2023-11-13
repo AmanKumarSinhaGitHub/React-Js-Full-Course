@@ -8,6 +8,10 @@ function Resume({ name, experience, education, skills, hobbies, interests }) {
     setIsDarkMode(!isDarkMode);
   };
 
+  function handleClickByPrinting(){
+    window.print();
+  }
+
   return (
     <>
       <div className={`${isDarkMode ? "dark-theme" : "light-theme"}`}>
@@ -19,8 +23,10 @@ function Resume({ name, experience, education, skills, hobbies, interests }) {
 
           <h1 className="title">Resume</h1>
 
+          <button className="btn print" onClick={handleClickByPrinting}>PRINT</button>
+
           {/* When button is click, change theme */}
-          <button className="btn" onClick={toggleDarkMode}>
+          <button className="btn mode" onClick={toggleDarkMode}>
             {`${isDarkMode ? "Light Mode" : "Dark Mode"}`}
           </button>
 
