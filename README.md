@@ -36,7 +36,7 @@ Make a form using < Form> tag and put an textbox and button inside this form. tr
 
 ### Task 3 
 
-use an Input Textbox : after you enter some text. try to press ENTER button and show the an alert or console.log. You can capture the onKeyPress event, button how you will you make it work only for "Enter" ? It should not work on pressing of other keys. [Hint: Explore the synthetic event object ]
+use an Input Textbox : after you enter some text. try to press ENTER button and show the an alert or console.log. You can capture the onKeyPress event, how you will you make it work only for "Enter" key ? It should not work on pressing of other keys. 
 
 ---
 
