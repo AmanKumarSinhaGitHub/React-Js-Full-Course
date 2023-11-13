@@ -42,7 +42,7 @@ use an Input Textbox : after you enter some text. try to press ENTER button and 
 
 ### Task 4 
 
- This is continuation of previous project/assignment RESUME Builder.
+This is continuation of previous project/assignment RESUME Builder.
 
 Add a print button to print the current resume. You can use a DOM method window.print to print the PDF.
 Assignment 5 : Can you try the challenge of passing the function in one Prop like onPlay and the message inside that function to be accessed from other prop message [ As shown in Chapter Video ]
