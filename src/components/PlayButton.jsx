@@ -1,18 +1,14 @@
 import React from "react";
 import "./PlayButton.css";
 
-function PlayButton({message, children }) { 
-
-  const handleClick = () => {
-    
-    console.log({ message });
-  };
+function PlayButton({ message, children }) {
+  function handleClick() {
+    alert(message);
+  }
 
   return (
     <>
-      <button onClick={handleClick} className="button">
-        {children} Click me
-      </button>
+      <button onClick={handleClick}>{children}</button>
     </>
   );
 }

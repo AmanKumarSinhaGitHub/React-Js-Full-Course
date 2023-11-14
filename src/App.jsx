@@ -1,35 +1,29 @@
 import "./App.css";
-import PlayButton from "./components/PlayButton";
-import Thumbnail from "./components/Thumbnail";
+import Video from "./components/Video";
 import videos from "./data/videoDetails";
+import PlayButton from "./components/PlayButton";
 
-// The main App component.
 function App() {
   return (
-    <>
+    <div className="App">
+      <div>Videos</div>
+      {videos.map((video) => (
+        <Video
+          key={video.id}
+          title={video.title}
+          views={video.views}
+          time={video.time}
+          channel={video.channel}
+          verified={video.verified}
+          id={video.id}
+        ></Video>
+      ))}
       <div>
+        <PlayButton message="Hello Video Playing">Play</PlayButton>
 
-      <PlayButton message="play"/>
-      <PlayButton message="pause"/>
-
-        <h1>Welcome to YouTube</h1>
-        
+        <PlayButton message="Hello Video Paused">Paused</PlayButton>
       </div>
-
-      <div className="videos-container">
-        {videos.map((video, index) => (
-          <Thumbnail
-            key={index}
-            videoID={index}
-            title={video.title}
-            views={video.views}
-            timeDuration={video.timeDuration}
-            channelName={video.channelName}
-            isVarified={true}
-          />
-        ))}
-      </div>
-    </>
+    </div>
   );
 }
 

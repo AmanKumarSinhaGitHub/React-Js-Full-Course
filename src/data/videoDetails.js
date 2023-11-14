@@ -1,46 +1,24 @@
-const videos = [
-    {
-      title: "Java Full Course",
-      views: 896,
-      timeDuration: "1 Month Ago",
-      channelName: "Java Coding Channel",
-      isVarified: false,
-    },
-    {
-      title: "Backend Full Course",
-      views: 567,
-      timeDuration: "2 Days Ago",
-      channelName: "CSS Coding Channel",
-      isVarified: false,
-    },
-    {
-      title: "MongoDB Full Course",
-      views: 896,
-      timeDuration: "1 Month Ago",
-      channelName: "MongoDb Coding Channel",
-      isVarified: true,
-    },
-    {
-      title: "React Full Course",
-      views: 983,
-      timeDuration: "5 Hours Ago",
-      channelName: "React Coding Channel",
-      isVarified: true,
-    },
-    {
-      title: "Backend Full Course",
-      views: 567,
-      timeDuration: "2 Days Ago",
-      channelName: "Node Coding Channel",
-      isVarified: true,
-    },
-    {
-      title: "DB Full Course",
-      views: 896,
-      timeDuration: "1 Month Ago",
-      channelName: "Js Coding Channel",
-      isVarified: false,
-    }
-  ];
+const videos = [{
+  id:1,
+  title: 'React JS tutorial',
+  views: '999K',
+  time: '1 year ago',
+  channel: 'Coder Dost',
+  verified: true
+},{
+  id:2,  
+  title: 'Node JS tutorial',
+  views: '100K',
+  time: '1 year ago',
+  channel: 'Coder Dost',
+  verified: false
+},
+{ id:3,
+  title: 'MongoDb JS tutorial',
+  views: '1M',
+  time: '1 month ago',
+  channel: 'Coder Dost',
+  verified: true
+}];
 
-  export default videos;
+export default videos;
