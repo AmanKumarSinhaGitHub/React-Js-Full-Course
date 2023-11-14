@@ -5,9 +5,12 @@ import PlayButton from "./components/PlayButton";
 
 function App() {
   return (
-    <div className="App">
+    // Here onClick function on App caused event bubbling. So to stop this use "e.stopPropogation" in "handleClick" function that is written in "PlayButton.jsx"
+    <div className="App" onClick={()=>alert("App")}>
       <div>Videos</div>
+
       {videos.map((video) => (
+
         <Video
           key={video.id}
           title={video.title}
@@ -16,13 +19,19 @@ function App() {
           channel={video.channel}
           verified={video.verified}
           id={video.id}
-        ></Video>
-      ))}
-      <div>
-        <PlayButton message="Hello Video Playing">Play</PlayButton>
+        >
 
-        <PlayButton message="Hello Video Paused">Paused</PlayButton>
-      </div>
+          {/*PlayButton component is children of 'Video' component*/}
+          <PlayButton
+            myCustomOnPlayFunc={() => alert(`Video Played: ${video.title}`)}
+            myCustomOnPauseFunc={() => alert(`Video Paused: ${video.title}`)}
+          >
+            {/* "<strong>Status</strong>" is children of 'PlayButton' component */}
+            <strong>Status</strong>
+          </PlayButton>
+
+        </Video>
+      ))}
     </div>
   );
 }

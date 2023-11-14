@@ -1,13 +1,13 @@
 import "./Video.css";
 
-function Video({ title, id, channel = "Coder Dost", views, time, verified }) {
+function Video({ title, id, channel = "Coder Dost", views, time, verified, children }) {
   return (
     <>
       <div className="container">
         <div className="pic">
           <img
             src={`https://picsum.photos/id/${id}/160/90`}
-            alt="Katherine Johnson"
+            alt="Random Image"
           />
         </div>
         <div className="title">{title}</div>
@@ -17,6 +17,8 @@ function Video({ title, id, channel = "Coder Dost", views, time, verified }) {
         <div className="views">
           {views} views <span>.</span> {time}
         </div>
+        {/* Rendering "PlayButton" component as children  */}
+        {children}
       </div>
     </>
   );
