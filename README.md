@@ -98,6 +98,8 @@ export default App;
 
 In this example, `ParentComponent` takes the `children` prop and renders it inside a `div`. When you use `ParentComponent` in `App.js` and provide it with some content (a paragraph and a button in this case), that content gets rendered inside the `ParentComponent`. The `children` prop allows you to create more flexible and reusable components by letting the parent component decide what content to render.
 
+![Project-1](https://github.com/AmanKumarSinhaGitHub/React-Js-Full-Course/assets/65329366/69aca40d-ecdb-4763-b4fa-49d102603f07)
+
 Keep in mind that you can pass any type of content as children, including other React components, JSX elements, or plain text.
 
 
