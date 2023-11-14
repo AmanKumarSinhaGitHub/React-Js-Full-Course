@@ -192,3 +192,5 @@ export default App;
 The `Card` component showcases the usage of functional components in React, leveraging the `children` prop for dynamic content. This pattern enhances reusability and flexibility in building components with varying content.
 
 ---
+
+Thank You
