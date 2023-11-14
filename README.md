@@ -53,7 +53,7 @@ React events and event bubbling are powerful tools that can be used to create in
 
 <br>
 
-# React Card Component
+# Children Prop
 
 This project demonstrates the usage of a simple `Card` component in React. The `Card` component is implemented as a functional component, utilizing the `children` prop to dynamically render content.
 
@@ -139,9 +139,8 @@ export default App;
 ```
 
 ## Conclusion
+![Card Project Preview](https://github.com/AmanKumarSinhaGitHub/React-Js-Full-Course/assets/65329366/93a5fd1a-29de-4c74-965a-831ba1de50da)
 
 The `Card` component showcases the usage of functional components in React, leveraging the `children` prop for dynamic content. This pattern enhances reusability and flexibility in building components with varying content.
-
-Feel free to customize and integrate this `Card` component into your React project based on your specific requirements.
 
 ---
