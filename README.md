@@ -1,4 +1,4 @@
-# Chapter 4 -  React Events and Event Bubbling
+# Chapter 4 - React Events and Event Bubbling
 
 React events are a way for React components to communicate with each other and with the outside world. When a user interacts with a React component, such as by clicking a button or typing in a text input, React generates an event. React components can listen for these events and take action accordingly.
 
@@ -18,9 +18,7 @@ const Button = () => {
     // Handle the click event
   };
 
-  return (
-    <button onClick={handleClick}>Click Me!</button>
-  );
+  return <button onClick={handleClick}>Click Me!</button>;
 };
 ```
 
@@ -45,12 +43,105 @@ const Button = () => {
     e.stopPropagation();
   };
 
-  return (
-    <button onClick={handleClick}>Inner Button</button>
-  );
+  return <button onClick={handleClick}>Inner Button</button>;
 };
 ```
 
 ### Conclusion
 
 React events and event bubbling are powerful tools that can be used to create interactive user interfaces. By understanding how these concepts work, you can write more efficient and effective React code.
+
+<br>
+
+# React Card Component
+
+This project demonstrates the usage of a simple `Card` component in React. The `Card` component is implemented as a functional component, utilizing the `children` prop to dynamically render content.
+
+## Card Component
+
+### Code
+
+```jsx
+// Card.jsx
+import "./Card.css";
+
+function Card({ title, children }) {
+  return (
+    <div className="card">
+      <h2>{title}</h2>
+      <div className="card-body">{children}</div>
+    </div>
+  );
+}
+
+export default Card;
+```
+
+### Styling
+
+```css
+/* Card.css */
+.card {
+  border: 1px solid #ddd;
+  padding: 16px;
+  margin: 16px;
+}
+
+.card h2 {
+  color: rgb(227, 218, 218);
+}
+
+.card-body {
+  margin-top: 8px;
+}
+```
+
+## Usage
+
+### App Component
+
+#### Code
+
+```jsx
+// App.jsx
+import React from "react";
+import "./App.css";
+import Card from "./components/Card";
+
+function App() {
+  return (
+    <div className="App">
+      <h1>Card Component Example</h1>
+
+      <Card title="Card 1">
+        <p>This is the content of Card 1.</p>
+      </Card>
+
+      <Card title="Card 2">
+        <p>This is the content of Card 2.</p>
+        <p>It can have multiple paragraphs.</p>
+      </Card>
+    </div>
+  );
+}
+
+export default App;
+```
+
+### Styling
+
+```css
+/* App.css */
+.App {
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+```
+
+## Conclusion
+
+The `Card` component showcases the usage of functional components in React, leveraging the `children` prop for dynamic content. This pattern enhances reusability and flexibility in building components with varying content.
+
+Feel free to customize and integrate this `Card` component into your React project based on your specific requirements.
+
+---
