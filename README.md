@@ -2,7 +2,9 @@
 
 ## Introduction
 
-In React, managing state is a crucial aspect of building dynamic and interactive user interfaces. The `useState` hook is a fundamental tool for handling state in functional components. This chapter will explore how to use the `useState` hook to manage state within your React applications.
+In React.js, "state" refers to the internal data that a component manages. The state of a component can change over time in response to user interactions, network responses, or other events. React components can have state, and when the state of a component changes, React will automatically re-render the component to reflect the updated state.
+
+Managing state is a crucial aspect of building dynamic and interactive user interfaces. The `useState` hook is a fundamental tool for handling state in functional components. This chapter will explore how to use the `useState` hook to manage state within your React applications.
 
 ## Getting Started
 
