@@ -1,9 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100%;
-  width: 100%;
-  margin-top: 50px;
+  height: 30vh;
+  width: 30vw;
+  border: 2px solid white;
+  margin: 8em;
 }
