@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import "./PlayButton.css";
 
 function PlayButton({ children, myCustomOnPlayFunc, myCustomOnPauseFunc }) {
+
+  console.log("Rendering Play-Pause BUTTON");
+
   const [playing, setPlaying] = useState(false);
 
   function handleClick(e) {

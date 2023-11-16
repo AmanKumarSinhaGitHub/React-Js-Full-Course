@@ -1,8 +1,9 @@
-import "./Video.css";
+import "./VideoContainer.css";
 
-function Video({ title, id, channel = "Coder Dost", views, time, verified, children }) {
+function VideoContainer({ title, id, channel = "Coder Dost", views, time, verified, children }) {
   return (
     <>
+      {console.log("Rendering VIDEOS")}
       <div className="container">
         <div className="pic">
           <img
@@ -20,8 +21,10 @@ function Video({ title, id, channel = "Coder Dost", views, time, verified, child
         {/* Rendering "PlayButton" component as children  */}
         {children}
       </div>
+
+     
     </>
   );
 }
 
-export default Video;
+export default VideoContainer;

@@ -1,0 +1,22 @@
+ h3{
+    color: white;
+}
+
+p{
+    color: white;
+    font-size: 25px;
+    font-weight: bolder;
+}
+
+.box{
+    display: flex;
+    margin: 10px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    width: 100%;
+    border: 2px solid white;
+}
+
+

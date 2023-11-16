@@ -4,9 +4,10 @@
 }
 
 .container {
-    width: 15em;
-    margin: 0 0.2em;
-    float: left;
+    width: 22%;
+    margin: 0.5em;
+    border: 2px solid white;
+    padding: 0.5em;
 }
 
 .pic img {

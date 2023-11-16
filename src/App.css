@@ -1,5 +1,20 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
 .App {
   background-color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.addNewVideos{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
   width: 100%;
-  height: 100vh;
 }
