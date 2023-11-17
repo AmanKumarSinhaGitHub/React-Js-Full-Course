@@ -20,3 +20,49 @@ body {
   border: 2px solid white;
   margin: 8em;
 }
+
+.headingContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 15vh;
+  justify-content: space-evenly;
+}
+
+.buttonContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 5vh;
+  width: 15vw;
+  justify-content: space-evenly;
+  margin: 0.6em;
+  padding: 0.6em;
+}
+
+
+button {
+  display: inline-block;
+  padding: 8px 12px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: black;
+  background-color: #BCCEE9;
+  border: none;
+  border-radius: 5px;
+  display: inline;
+  margin: 8px 8px 8px;
+}
+
+button:hover {
+  background-color: #3e8e41
+}
+
+button:active {
+  background-color: #3e8e41;
+  transform: translateY(2px);
+}

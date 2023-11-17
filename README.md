@@ -1,6 +1,6 @@
-# Digital Clock
+# Timer
 
-Make a digital CLOCK Component using useEffect Hook. We need to only update the time Upto seconds in it. HH:MM:SS format can be used. Can you make it send a Console.log at end of every minute ?
+Implement a simple TIMER that displays the elapsed time since the start button was pressed, and it can be stopped and reset. Like a stopwatch.
 
 ## UseEffect Snippet
 
@@ -69,5 +69,9 @@ export default YourApp;
 - The dependency array `[third]` specifies that the effect should run whenever the value of the variable `'third'` changes. If `'third'` is an array, the effect would run if any element in the array changes.
 - If the dependency array is empty (`[]`), the effect would only run once after the initial render, and there would be no cleanup.
 
+### Notes:
+#### ```setInterval()``` and ```clearInterval()```
 
+- In JavaScript, the clearInterval function is used to stop the repeated execution of code that was initiated by the setInterval function. 
 
+- The setInterval function schedules the execution of a function or a piece of code at specified intervals.
