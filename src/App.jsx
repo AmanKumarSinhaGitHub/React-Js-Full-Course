@@ -2,7 +2,6 @@ import "./App.css";
 import VideoContainer from "./components/VideoContainer";
 import videosDB from "./data/videosDB";
 import PlayButton from "./components/PlayButton";
-import IncrementDecrement from "./components/IncrementDecrement";
 import { useState } from "react";
 
 function App() {
@@ -15,7 +14,7 @@ function App() {
 
     setVideos([...videos, {
       id: videos.length + 1,
-      title: 'MongoDb JS tutorial',
+      title: `Video No. ${videos.length+1}`,
       views: '1M',
       time: '1 month ago',
       channel: 'Coder Dost',
@@ -58,7 +57,6 @@ function App() {
           </VideoContainer>
         ))}
 
-        <IncrementDecrement />
       </div>
     </>
   );
