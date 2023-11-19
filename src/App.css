@@ -1,13 +1,16 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
+  height: 100vh;
+  background-color: #242424; 
+  color: #fff;
 }
 
 .container {
@@ -15,54 +18,51 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 30vh;
+  height: 40vh;
   width: 30vw;
-  border: 2px solid white;
-  margin: 8em;
+  background-color: #242424; 
+  border: 2px solid #a7b4c1; 
+  border-radius: 8px;
+  margin: 2em;
+  box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.1);
 }
 
-.headingContainer{
+.headingContainer {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: 15vh;
-  justify-content: space-evenly;
+  height: 30%;
 }
 
-.buttonContainer{
+.buttonContainer {
   display: flex;
   align-items: center;
-  justify-content: center;
-  height: 5vh;
-  width: 15vw;
   justify-content: space-evenly;
-  margin: 0.6em;
-  padding: 0.6em;
+  height: 20%;
 }
-
 
 button {
   display: inline-block;
-  padding: 8px 12px;
+  padding: 8px 16px;
   font-size: 16px;
   cursor: pointer;
   text-align: center;
   text-decoration: none;
   outline: none;
-  color: black;
-  background-color: #BCCEE9;
+  color: #fff;
+  background-color: #005cbf; /* Light blue button color */
   border: none;
   border-radius: 5px;
-  display: inline;
-  margin: 8px 8px 8px;
+  margin: 8px;
+  transition: background-color 0.3s;
 }
 
 button:hover {
-  background-color: #3e8e41
+  background-color: #0a84ff; /* Darker blue on hover */
 }
 
 button:active {
-  background-color: #3e8e41;
-  transform: translateY(2px);
+  background-color: #005cbf; /* Darkest blue on active */
 }
+
