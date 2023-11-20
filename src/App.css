@@ -1,6 +1,7 @@
 *{
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 .App {
@@ -17,4 +18,6 @@
   justify-content: center;
   height: 50px;
   width: 100%;
+  margin-top: 0.5em;
+  padding: 0.5em;
 }

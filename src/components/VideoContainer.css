@@ -8,15 +8,17 @@
     margin: 0.5em;
     border: 2px solid white;
     padding: 0.5em;
+    border-radius: 5px;
 }
 
 .pic img {
     width: 100%;
+    border-radius: 5px;
 }
 
 .title {
     font-weight: bold;
-    margin-bottom: 1em;
+    margin-bottom: 0.4em;
     color: white
 }
 
@@ -28,5 +30,5 @@
 }
 
 .views span {
-    padding: 0 0.5em;
+    padding: 0 0.25em;
 }

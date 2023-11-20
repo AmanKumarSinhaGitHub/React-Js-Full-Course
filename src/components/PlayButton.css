@@ -10,9 +10,8 @@ button {
     background-color: #BCCEE9;
     border: none;
     border-radius: 5px;
-
     display: inline;
-    margin: 8px 8px 8px;
+    margin-top: 4px;
 }
 
 button:hover {
@@ -21,6 +20,5 @@ button:hover {
 
 button:active {
     background-color: #3e8e41;
-
     transform: translateY(2px);
 }
