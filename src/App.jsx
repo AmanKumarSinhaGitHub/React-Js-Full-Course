@@ -1,62 +1,30 @@
 import "./App.css";
-import VideoContainer from "./components/VideoContainer";
 import videosDB from "./data/videosDB";
-import PlayButton from "./components/PlayButton";
 import { useState } from "react";
+import AddVideo from "./components/AddVideo";
+import VideoList from "./components/VideoList";
 
 function App() {
 
-  console.log("Rendering APP")
+  console.log("Rendering APP");
 
+  // State to manage the list of videos
   const [videos, setVideos] = useState(videosDB);
 
-  function handleClick() {
-
-    setVideos([...videos, {
-      id: videos.length + 1,
-      title: `Video No. ${videos.length+1}`,
-      views: '1M',
-      time: '1 month ago',
-      channel: 'Coder Dost',
-      verified: true
-    }])
+  // Function to add a new video to the list
+  function addNewVideos(newVideo) {
+    setVideos([...videos, { ...newVideo, id: videos.length + 1 }]);
   }
 
+  // Render the main application
   return (
-
     <>
-
-      <div className="addNewVideos">
-
-        <button onClick={handleClick}>Add Video</button>
-      </div>
+      {/* Component for adding new videos */}
+      <AddVideo addNewVideos={addNewVideos} />
 
       <div className="App">
-
-        {videos.map((video) => (
-
-          <VideoContainer
-            key={video.id}
-            title={video.title}
-            views={video.views}
-            time={video.time}
-            channel={video.channel}
-            verified={video.verified}
-            id={video.id}
-          >
-
-            {/*PlayButton component is children of 'Video' component*/}
-            <PlayButton
-              myCustomOnPlayFunc={() => alert(`Video Played: ${video.title}`)}
-              myCustomOnPauseFunc={() => alert(`Video Paused: ${video.title}`)}
-            >
-              {/* "<strong>Status</strong>" is children of 'PlayButton' component */}
-              <strong>Status</strong>
-            </PlayButton>
-
-          </VideoContainer>
-        ))}
-
+        {/* Component for displaying the list of videos */}
+        <VideoList videos={videos} />
       </div>
     </>
   );

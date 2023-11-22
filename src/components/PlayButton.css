@@ -15,10 +15,15 @@ button {
 }
 
 button:hover {
-    background-color: #3e8e41
+    background-color: #86ae88;
 }
 
 button:active {
-    background-color: #3e8e41;
+    background-color: #86ae88;
     transform: translateY(2px);
+}
+
+button:focus {
+    outline: 2px solid white; 
+    outline-offset: 2px; 
 }

@@ -1,6 +1,8 @@
 import "./VideoContainer.css";
 
-function VideoContainer({ title, id, channel = "Coder Dost", views, time, verified, children }) {
+// VideoContainer component to display video details
+function VideoContainer({ title, id, channel = "Coding", views, time, verified, children,}) {
+
   return (
     <>
       {console.log("Rendering VIDEOS")}
@@ -16,13 +18,12 @@ function VideoContainer({ title, id, channel = "Coder Dost", views, time, verifi
           {channel} {verified && "✅"}{" "}
         </div>
         <div className="views">
-          {views} views<span>•</span>{time}
+          {views} views<span>•</span>
+          {time}
         </div>
         {/* Rendering "PlayButton" component as children  */}
         {children}
       </div>
-
-     
     </>
   );
 }
