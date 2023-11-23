@@ -50,6 +50,7 @@ function Task1() {
   return (
     <>
       <div className="container">
+        <p>Task Details in README.md File</p>
         <h1>Task 1</h1>
 
         <img
@@ -77,9 +78,10 @@ function Task1() {
           className="btn"
           onDoubleClick={handleDoubleClick}
           onClick={handleSingleClick}
-        > Click Me
+        >
+          {" "}
+          Click Me
         </button>
-        
       </div>
     </>
   );
