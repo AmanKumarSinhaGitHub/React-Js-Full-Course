@@ -61,7 +61,7 @@ function Task1() {
           onMouseLeave={handleMouseLeave}
         />
 
-        {isMouseEnter ? <p>Mouse is Over</p> : <p>Mouse is Out</p>}
+        {isMouseEnter ? <h3>Mouse is Over</h3> : <h3>Mouse is Out</h3>}
 
         <input
           type="text"

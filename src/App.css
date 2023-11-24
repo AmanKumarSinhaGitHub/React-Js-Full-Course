@@ -19,6 +19,11 @@
   border-radius: 5px;
 }
 
+.btn:hover,
+.btn:focus {
+  background-color: rgb(68, 68, 180);
+}
+
 input{
   margin: 15px 5px 15px 5px;
   padding: 10px;
