@@ -40,12 +40,27 @@ use an Input Textbox : after you enter some text. try to press ENTER button and 
 
 ---
 
-### Task 4 
+### Task 4 :
 
-This is continuation of previous project/assignment RESUME Builder.
+Create a Dropdown (< Select >) menu which is formed by a nations array. You can push to this array new items using a 2 input textbox (for country name and code) and button. On selection of the any option from dropdown, its value(code) should be displayed on screen.
 
-Add a print button to print the current resume. You can use a DOM method window.print to print the PDF.
+```js
+const  nations  = [
+  { name:  'India', code:  'IN' },
+  { name:  'Pak', code:  'PK' },
+  { name:  'Bangladesh', code:  'BG' },
+] 
+```
 
+---
 ### Task 5
 
-Can you try the challenge of passing the function in one Prop like onPlay and the message inside that function to be accessed from other prop message [ As shown in Chapter Video ]
+#### FILTERED LIST :
+
+Make a List of something using an Array (a list can of cricket player /countries/ movie name etc). Now make this list it searchable, you have to put a input textbox at top of list. When you type in textbox it should only show you items matching from text typed. For example - If you type only "in" it should show things like "India" / "China" as both have in in it.
+
+#### FILTERED LIST : 
+
+Make above List as separate components for List, Input form and pass the states from each other using concepts learnt till now.
+
+---
