@@ -98,15 +98,24 @@ a {
   display: inline;
   padding: 0.6em;
   border-style: none;
-  background-color: rgb(72, 72, 205);
+  background-color: rgb(88, 88, 200);
   color: white;
   border-radius: 0.5em;
   font-weight: bold;
 }
 
+.btn:hover,
+.btn:focus {
+  background-color: rgb(68, 68, 180);
+}
+
+input {
+  margin: 15px 5px 15px 5px;
+  padding: 10px;
+}
 
 .mode {
-  margin-left: 2%; 
+  margin-left: 2%;
 }
 
 .print {
