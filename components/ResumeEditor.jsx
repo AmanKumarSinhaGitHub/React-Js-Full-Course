@@ -2,7 +2,6 @@ import { useState } from "react";
 import "./ResumeEditor.css";
 
 function ResumeEditor() {
-
   const [details, setDetails] = useState({
     name: "",
     experience: [
@@ -37,10 +36,6 @@ function ResumeEditor() {
   const [hobby, setHobby] = useState("");
   const [interest, setInterest] = useState("");
 
-
-
-
-  
   function handleChangeName(e) {
     setName(e.target.value);
     console.log(e.target.value, e.target.name);
@@ -55,12 +50,8 @@ function ResumeEditor() {
 
       setName("");
     }
-    console.log("All Names are", details.name);
+    console.log("Your name is: ", details.name);
   }
-
-
-
-
 
   function handleChangeSkill(e) {
     setSkill(e.target.value);
@@ -79,11 +70,6 @@ function ResumeEditor() {
     console.log("All Skills are", details.skills);
   }
 
-
-
-
-
-
   function handleChangeExperience(e) {
     setExperience((prevExperience) => ({
       ...prevExperience,
@@ -92,7 +78,11 @@ function ResumeEditor() {
   }
 
   function handleClickExperience() {
-    if (experience.year.trim() !== "" && experience.company.trim() !== "" && experience.role.trim() !== "") {
+    if (
+      experience.year.trim() !== "" &&
+      experience.company.trim() !== "" &&
+      experience.role.trim() !== ""
+    ) {
       setDetails((prevDetails) => ({
         ...prevDetails,
         experience: [...prevDetails.experience, experience],
@@ -106,11 +96,6 @@ function ResumeEditor() {
     }
     console.log("All Experiences are", details.experience);
   }
-
-
-
-
-
 
   function handleChangeEducation(e) {
     setEducation((prevEducation) => ({
@@ -134,11 +119,6 @@ function ResumeEditor() {
     console.log("All Education details are", details.education);
   }
 
-
-
-
-
-
   function handleChangeHobby(e) {
     setHobby(e.target.value);
     console.log(e.target.value, e.target.name);
@@ -156,11 +136,6 @@ function ResumeEditor() {
     console.log("All Hobbies are", details.hobbies);
   }
 
-
-
-
-
-  
   function handleChangeInterest(e) {
     setInterest(e.target.value);
     console.log(e.target.value, e.target.name);
@@ -180,11 +155,16 @@ function ResumeEditor() {
 
   return (
     <>
-      <div className="container">
-        <h1>Resume Editor</h1>
+      <div id="header" />
+      <div className="left" />
+      <div className="stuff">
+        <br />
+        <br />
 
-        <label>
-          Name
+        <h1 className="title">Resume Details</h1>
+
+        <label className="inputContainer">
+          <h2>Name : {details.name}</h2>
           <input
             type="text"
             placeholder="enter your name"
@@ -197,24 +177,23 @@ function ResumeEditor() {
           </button>
         </label>
 
-        <h1>{details.name}</h1>
+        <label className="inputContainer">
+          <h2>Experience</h2>
 
-        <label>
-          Skill
-          <input
-            type="text"
-            placeholder="enter your skill"
-            name="skill"
-            value={skill}
-            onChange={handleChangeSkill}
-          />
-          <button className="btn" onClick={handleClickSkill}>
-            ADD
-          </button>
-        </label>
+          {details.experience.length > 0 && details.experience.length <= 10 && (
+            <>
+              <div className="section">
+                <ul>
+                  {details.experience.map((exp, index) => (
+                    <li
+                      key={index}
+                    >{`${exp.year} - ${exp.company}: ${exp.role}`}</li>
+                  ))}
+                </ul>
+              </div>
+            </>
+          )}
 
-        <label>
-          Experience
           <input
             type="text"
             placeholder="year"
@@ -241,8 +220,46 @@ function ResumeEditor() {
           </button>
         </label>
 
-        <label>
-          Education
+        <label className="inputContainer">
+          <h2>Skill</h2>
+          {details.skills.length > 0 && details.skills.length <= 10 && (
+            <>
+              <div className="section">
+                <ul>
+                  {details.skills.map((s, index) => (
+                    <li key={index}>{s}</li>
+                  ))}
+                </ul>
+              </div>
+            </>
+          )}
+          <input
+            type="text"
+            placeholder="enter your skill"
+            name="skill"
+            value={skill}
+            onChange={handleChangeSkill}
+          />
+          <button className="btn" onClick={handleClickSkill}>
+            ADD
+          </button>
+        </label>
+
+        <label className="inputContainer">
+          <h2>Education</h2>
+
+          {details.education.length > 0 && details.education.length <= 10 && (
+            <>
+              <h1>{details.education.length} </h1>
+              <div className="section">
+                <ul>
+                  {details.education.map((edu, index) => (
+                    <li key={index}>{`${edu.year} - ${edu.college}`}</li>
+                  ))}
+                </ul>
+              </div>
+            </>
+          )}
           <input
             type="text"
             placeholder="year"
@@ -262,8 +279,19 @@ function ResumeEditor() {
           </button>
         </label>
 
-        <label>
-          Hobby
+        <label className="inputContainer">
+          <h2>Hobby</h2>
+          {details.hobbies.length > 0 && details.hobbies.length <= 10 && (
+            <>
+              <div className="section">
+                <ul>
+                  {details.hobbies.map((h, index) => (
+                    <li key={index}>{h}</li>
+                  ))}
+                </ul>
+              </div>
+            </>
+          )}
           <input
             type="text"
             placeholder="enter your hobby"
@@ -276,8 +304,19 @@ function ResumeEditor() {
           </button>
         </label>
 
-        <label>
-          Interest
+        <label className="inputContainer">
+          <h2>Interest</h2>
+          {details.interests.length > 0 && details.interests.length <= 10 && (
+            <>
+              <div className="section">
+                <ul>
+                  {details.interests.map((i, index) => (
+                    <li key={index}>{i}</li>
+                  ))}
+                </ul>
+              </div>
+            </>
+          )}
           <input
             type="text"
             placeholder="enter your interest"
@@ -289,41 +328,11 @@ function ResumeEditor() {
             ADD
           </button>
         </label>
+      </div>
 
-        <h2>All Experiences:</h2>
-        <ul>
-          {details.experience.map((exp, index) => (
-            <li key={index}>{`${exp.year} - ${exp.company}: ${exp.role}`}</li>
-          ))}
-        </ul>
-
-        <h2>All Education:</h2>
-        <ul>
-          {details.education.map((edu, index) => (
-            <li key={index}>{`${edu.year} - ${edu.college}`}</li>
-          ))}
-        </ul>
-
-        <h2>All Skills:</h2>
-        <ul>
-          {details.skills.map((s, index) => (
-            <li key={index}>{s}</li>
-          ))}
-        </ul>
-
-        <h2>All Hobbies:</h2>
-        <ul>
-          {details.hobbies.map((h, index) => (
-            <li key={index}>{h}</li>
-          ))}
-        </ul>
-
-        <h2>All Interests:</h2>
-        <ul>
-          {details.interests.map((i, index) => (
-            <li key={index}>{i}</li>
-          ))}
-        </ul>
+      <div className="right" />
+      <div id="footer">
+        <h2 id="name">{details.name}</h2>
       </div>
     </>
   );

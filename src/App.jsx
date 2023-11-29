@@ -7,7 +7,8 @@ function App() {
   return (
     <>
       <Resume {...details} />
-      <ResumeEditor/>
+
+      <ResumeEditor />
     </>
   );
 }

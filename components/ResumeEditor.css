@@ -11,3 +11,25 @@ input{
   margin: 15px 5px 15px 5px;
   padding: 10px;
 }
+
+.inputContainer{
+  border: 2px solid rgba(255, 192, 203, 0.589);
+  margin: 15px;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.inputContainer h2{
+  margin-left: 5px;
+}
+
+.inputContainer button{
+  width: 50%;
+  height: 3em;
+}
+
+.stuff{
+  height: auto;
+}
