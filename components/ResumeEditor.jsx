@@ -4,19 +4,8 @@ import "./ResumeEditor.css";
 function ResumeEditor() {
   const [details, setDetails] = useState({
     name: "",
-    experience: [
-      {
-        year: "",
-        company: "",
-        role: "",
-      },
-    ],
-    education: [
-      {
-        year: "",
-        college: "",
-      },
-    ],
+    experience: [],
+    education: [],
     skills: [],
     hobbies: [],
     interests: [],
@@ -250,7 +239,6 @@ function ResumeEditor() {
 
           {details.education.length > 0 && details.education.length <= 10 && (
             <>
-              <h1>{details.education.length} </h1>
               <div className="section">
                 <ul>
                   {details.education.map((edu, index) => (
