@@ -1,7 +1,7 @@
 import { useState } from "react";
-import "./ResumeEditor.css";
+import "./ResumeCreator.css";
 
-function ResumeEditor() {
+function ResumeCreator({getDetails}) {
   const [details, setDetails] = useState({
     name: "",
     experience: [],
@@ -28,6 +28,12 @@ function ResumeEditor() {
   function handleChangeName(e) {
     setName(e.target.value);
     console.log(e.target.value, e.target.name);
+  }
+  
+  // Passing Data to Parent
+  function handleSubmit(){
+    getDetails(details)
+    console.log("FORM SUBMITTED")
   }
 
   function handleClickName() {
@@ -150,7 +156,7 @@ function ResumeEditor() {
         <br />
         <br />
 
-        <h1 className="title">Resume Details</h1>
+        <h1 className="title">User Details</h1>
 
         <label className="inputContainer">
           <h2>Name : {details.name}</h2>
@@ -184,7 +190,7 @@ function ResumeEditor() {
           )}
 
           <input
-            type="text"
+            type="number"
             placeholder="year"
             name="year"
             value={experience.year}
@@ -249,7 +255,7 @@ function ResumeEditor() {
             </>
           )}
           <input
-            type="text"
+            type="number"
             placeholder="year"
             name="year"
             value={education.year}
@@ -316,6 +322,8 @@ function ResumeEditor() {
             ADD
           </button>
         </label>
+
+        <button id="submitBtn" onClick={handleSubmit} className="btn">SUBMIT</button>
       </div>
 
       <div className="right" />
@@ -326,4 +334,4 @@ function ResumeEditor() {
   );
 }
 
-export default ResumeEditor;
+export default ResumeCreator;
