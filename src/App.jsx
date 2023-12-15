@@ -1,31 +1,90 @@
+import React, { useState, useEffect } from "react";
 import "./App.css";
-import videosDB from "./data/videosDB";
-import { useState } from "react";
-import AddVideo from "./components/AddVideo";
-import VideoList from "./components/VideoList";
+import TaskInputForm from "./components/TaskInputForm";
+import Todos from "./components/Todos";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
+  const [task, setTask] = useState("");
+  const [taskList, setTaskList] = useState(null); // Set initial state to null
+  const [inputError, setInputError] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
 
-  console.log("Rendering APP");
+  // Load tasks from localStorage on component mount
+  useEffect(() => {
+    const storedTaskList = JSON.parse(localStorage.getItem("taskList")) || [];
 
-  // State to manage the list of videos
-  const [videos, setVideos] = useState(videosDB);
+    // Set the taskList state only if it's null
+    if (taskList === null) {
+      setTaskList(storedTaskList);
+    }
+  }, [taskList]);
 
-  // Function to add a new video to the list
-  function addNewVideos(newVideo) {
-    setVideos([...videos, { ...newVideo, id: videos.length + 1 }]);
+  // Save tasks to localStorage whenever taskList changes
+  useEffect(() => {
+    if (taskList !== null) {
+      localStorage.setItem("taskList", JSON.stringify(taskList));
+    }
+  }, [taskList]);
+
+  function handleClickTaskAdd() {
+    const formattedTask = task.trim().toLowerCase();
+
+    if (formattedTask === "") {
+      setInputError(true);
+
+      setTimeout(() => {
+        setInputError(false);
+      }, 500);
+
+      return;
+    }
+
+    if (taskList.some((t) => t.text.toLowerCase() === formattedTask)) {
+      setShowPopup(true);
+
+      setTimeout(() => {
+        setShowPopup(false);
+      }, 1500);
+
+      setTask("");
+
+      return;
+    }
+
+    // Update taskList state and localStorage
+    const updatedTaskList = [...(taskList || []), { text: task, isChecked: false }];
+    setTaskList(updatedTaskList);
+    setTask("");
   }
 
-  // Render the main application
+  function handleChange(e) {
+    setTask(e.target.value);
+  }
+
   return (
     <>
-      {/* Component for adding new videos */}
-      <AddVideo addNewVideos={addNewVideos} />
+      <Header />
 
-      <div className="App">
-        {/* Component for displaying the list of videos */}
-        <VideoList videos={videos} />
-      </div>
+      <main>
+        <TaskInputForm
+          inputError={inputError}
+          task={task}
+          handleChange={handleChange}
+          handleClickTaskAdd={handleClickTaskAdd}
+        />
+
+        <Todos taskList={taskList || []} setTaskList={setTaskList} />
+
+        {showPopup && (
+          <div className="popup">
+            <p>Task already exists!</p>
+          </div>
+        )}
+      </main>
+
+      <Footer />
     </>
   );
 }
