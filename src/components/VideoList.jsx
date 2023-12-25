@@ -2,10 +2,9 @@ import PlayButton from "./PlayButton";
 import VideoContainer from "./VideoContainer";
 
 // Component for displaying a list of videos
-function VideoList({ videos, deleteVideo}) {
+function VideoList({ videos, deleteVideo, editVideo }) {
   return (
     <>
-
       {/* Iterate over the list of videos and render VideoContainer */}
 
       {videos.map((video) => (
@@ -18,18 +17,16 @@ function VideoList({ videos, deleteVideo}) {
           verified={video.verified}
           id={video.id}
           deleteVideo={deleteVideo}
+          editVideo={editVideo}
         >
-       
           <PlayButton
             myCustomOnPlayFunc={() => alert(`Video Played: ${video.title}`)}
             myCustomOnPauseFunc={() => alert(`Video Paused: ${video.title}`)}
           >
-           
             <strong>Status</strong>
           </PlayButton>
         </VideoContainer>
       ))}
-      
     </>
   );
 }

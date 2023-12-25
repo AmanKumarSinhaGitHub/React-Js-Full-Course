@@ -5,11 +5,12 @@ import AddVideo from "./components/AddVideo";
 import VideoList from "./components/VideoList";
 
 function App() {
-
   console.log("Rendering APP");
 
   // State to manage the list of videos
   const [videos, setVideos] = useState(videosDB);
+
+  const [editableVideo, setEditableVideo] = useState(null);
 
   // Function to add a new video to the list
   function addNewVideos(newVideo) {
@@ -18,21 +19,39 @@ function App() {
 
   // Function to add a new video to the list
   function deleteVideo(id) {
-
-    setVideos(videos.filter(video=>video.id!==id))
- 
+    setVideos(videos.filter((video) => video.id !== id));
   }
 
+  function editVideo(id) {
+    setEditableVideo(videos.find((video) => video.id === id));
+  }
+
+  function updateVideo(video) {
+    const index = videos.findIndex((v) => v.id === video.id);
+    const vdeo = [...videos];
+    vdeo.splice(index, 1, video);
+    setVideos(vdeo);
+    // Inital State
+    setEditableVideo(null);
+  }
 
   // Render the main application
   return (
     <>
       {/* Component for adding new videos */}
-      <AddVideo addNewVideos={addNewVideos} />
+      <AddVideo
+        addNewVideos={addNewVideos}
+        editableVideo={editableVideo}
+        updateVideo={updateVideo}
+      />
 
       <div className="App">
         {/* Component for displaying the list of videos */}
-        <VideoList deleteVideo={deleteVideo} videos={videos} />
+        <VideoList
+          deleteVideo={deleteVideo}
+          editVideo={editVideo}
+          videos={videos}
+        />
       </div>
     </>
   );

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./AddVideo.css";
 
 // Initial state for a new video
@@ -10,8 +10,7 @@ const initialState = {
   views: "",
 };
 
-// Component for adding new videos
-function AddVideo({ addNewVideos }) {
+function AddVideo({ addNewVideos, updateVideo, editableVideo }) {
   // State to manage input values for a new video
   const [videos, setVideos] = useState(initialState);
 
@@ -29,12 +28,22 @@ function AddVideo({ addNewVideos }) {
     if (videos.title.trim() === "" || videos.title.trim() === "") {
       alert("Enter Video Details First");
     } else {
-      // Call the parent component's function to add the new video
-      addNewVideos(videos);
+      if (editableVideo) {
+        updateVideo(videos);
+      } else {
+        // Call the parent component's function to add the new video
+        addNewVideos(videos);
+      }
       // Reset form fields to initial state
       setVideos(initialState);
     }
   }
+
+  useEffect(() => {
+    if (editableVideo) {
+      setVideos(editableVideo);
+    }
+  }, [editableVideo]);
 
   // Render the form for adding a new video
   return (
@@ -59,7 +68,9 @@ function AddVideo({ addNewVideos }) {
 
           {/* Button to submit the form */}
           <div className="addNewVideos">
-            <button onClick={handleSubmit}>Add Video</button>
+            <button onClick={handleSubmit}>
+              {editableVideo ? "Edit" : "Add"} Video
+            </button>
           </div>
         </form>
       </div>
