@@ -7,8 +7,8 @@ const initialState = {
   channel: "Coder Dost",
   verified: true,
   title: "",
-  views: ""
-}
+  views: "",
+};
 
 // Component for adding new videos
 function AddVideo({ addNewVideos }) {
@@ -26,10 +26,14 @@ function AddVideo({ addNewVideos }) {
   // Handle form submission
   function handleSubmit(event) {
     event.preventDefault();
-    // Call the parent component's function to add the new video
-    addNewVideos(videos);
-    // Reset form fields to initial state
-    setVideos(initialState)
+    if (videos.title.trim() === "" || videos.title.trim() === "") {
+      alert("Enter Video Details First");
+    } else {
+      // Call the parent component's function to add the new video
+      addNewVideos(videos);
+      // Reset form fields to initial state
+      setVideos(initialState);
+    }
   }
 
   // Render the form for adding a new video

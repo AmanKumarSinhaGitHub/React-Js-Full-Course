@@ -16,6 +16,14 @@ function App() {
     setVideos([...videos, { ...newVideo, id: videos.length + 1 }]);
   }
 
+  // Function to add a new video to the list
+  function deleteVideo(id) {
+
+    setVideos(videos.filter(video=>video.id!==id))
+ 
+  }
+
+
   // Render the main application
   return (
     <>
@@ -24,7 +32,7 @@ function App() {
 
       <div className="App">
         {/* Component for displaying the list of videos */}
-        <VideoList videos={videos} />
+        <VideoList deleteVideo={deleteVideo} videos={videos} />
       </div>
     </>
   );
