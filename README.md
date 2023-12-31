@@ -24,7 +24,7 @@ This is the full react js course.
 
 - Chapter 6 - Form , Synthetic Event Object & Lifting State up
 
-- Chapter 7 - More State & useEffect hooks
+- Chapter 7 - CRUD Operations & useEffect hooks
 
 - Chapter 8 - useReducer
 
