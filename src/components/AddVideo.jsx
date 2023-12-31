@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./AddVideo.css";
 
 // Initial state for a new video
@@ -25,7 +25,8 @@ function AddVideo({ addNewVideos, updateVideo, editableVideo }) {
   // Handle form submission
   function handleSubmit(event) {
     event.preventDefault();
-    if (videos.title.trim() === "" || videos.title.trim() === "") {
+    // Check if title or views are empty
+    if (videos.title.trim() === "" || videos.views.trim() === "") {
       alert("Enter Video Details First");
     } else {
       if (editableVideo) {
@@ -39,11 +40,10 @@ function AddVideo({ addNewVideos, updateVideo, editableVideo }) {
     }
   }
 
-  useEffect(() => {
-    if (editableVideo) {
-      setVideos(editableVideo);
-    }
-  }, [editableVideo]);
+  // Check if editableVideo is defined before using its properties
+  if (editableVideo && editableVideo.id !== videos.id) {
+    setVideos(editableVideo);
+  }
 
   // Render the form for adding a new video
   return (
