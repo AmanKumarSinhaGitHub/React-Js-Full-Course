@@ -1,89 +1,96 @@
-# Chapter 8 - useReducer
+# Chapter 9 - Context API & useContext
 
 ## Overview
 
-Welcome to Chapter 8 of our beginner-friendly guide to React! In this chapter, we'll delve into the `useReducer` hook, an essential tool for managing complex state logic in your React applications. Understanding `useReducer` can significantly improve the maintainability and scalability of your code.
+Welcome to Chapter 9 of our beginner-friendly guide to React! In this chapter, we'll explore the Context API and the `useContext` hook. These tools are essential for efficiently passing data through the component tree without having to manually pass props at every level.
 
-## What is useReducer?
+## What is the Context API?
 
-`useReducer` is a React hook that provides an alternative way to manage state in functional components. While `useState` is great for simple state changes, `useReducer` becomes particularly useful when dealing with more intricate state logic or when the next state depends on the previous one.
+The Context API is a part of React that enables the sharing of values (like themes, user authentication status, etc.) across components, regardless of how deep they are nested in the component tree.
 
-## When to use useReducer?
+## When to use Context API & `useContext`?
 
-Consider using `useReducer` in the following scenarios:
+Consider using the Context API and `useContext` when:
 
-1. **Complex State Logic:** When your state transitions are complex and involve multiple sub-values.
-  
-2. **Local Component State:** For managing local state within a component.
+1. **Prop Drilling Becomes Cumbersome:** When passing props through multiple levels of components becomes impractical.
 
-3. **State Dependencies:** When the next state depends on the previous state or when you need to update state based on the previous state.
+2. **Global State Management:** For managing global state that needs to be accessed by various components.
 
-## How to use useReducer
+3. **Themable Components:** When you want to provide a theme or styling information to various components.
 
-Using `useReducer` involves three primary steps:
+## How to use Context API & `useContext`
 
-1. **Import the hook:**
+### 1. **Create a Context:**
 
    ```jsx
-   import React, { useReducer } from 'react';
+   import React, { createContext } from 'react';
+   
+   const MyContext = createContext();
    ```
 
-2. **Define a reducer function:**
+### 2. **Wrap Components with Provider:**
+
+   Wrap your components with the `Provider` to make the context available to them.
 
    ```jsx
-   const reducer = (state, action) => {
-     // Logic to determine the next state based on the action type
-     // Return the new state
+   const App = () => {
+     return (
+       <MyContext.Provider value={/* your value */}>
+         {/* Your components */}
+       </MyContext.Provider>
+     );
    };
    ```
 
-3. **Use the hook in your component:**
+### 3. **Use `useContext` in Child Components:**
+
+   Access the context value using the `useContext` hook.
 
    ```jsx
+   import React, { useContext } from 'react';
+   
    const MyComponent = () => {
-     const [state, dispatch] = useReducer(reducer, initialState);
+     const contextValue = useContext(MyContext);
      // ...
    };
    ```
 
-   - `state`: Current state value.
-   - `dispatch`: Function to dispatch actions.
-
 ## Example
 
-Let's create a simple counter application to demonstrate the use of `useReducer`:
+Let's create a simple example where we use the Context API to manage the theme of our application:
 
 ```jsx
-import React, { useReducer } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 
-const initialState = { count: 0 };
+// Step 1: Create a Context
+const ThemeContext = createContext();
 
-const reducer = (state, action) => {
-  switch (action.type) {
-    case 'increment':
-      return { count: state.count + 1 };
-    case 'decrement':
-      return { count: state.count - 1 };
-    default:
-      return state;
-  }
-};
-
-const Counter = () => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+const App = () => {
+  // Step 2: Wrap components with Provider
+  const [theme, setTheme] = useState('light');
 
   return (
-    <div>
-      Count: {state.count}
-      <button onClick={() => dispatch({ type: 'increment' })}>Increment</button>
-      <button onClick={() => dispatch({ type: 'decrement' })}>Decrement</button>
-    </div>
+    <ThemeContext.Provider value={{ theme, setTheme }}>
+      {/* Your components */}
+    </ThemeContext.Provider>
   );
 };
 
-export default Counter;
+const ThemedComponent = () => {
+  // Step 3: Use useContext in Child Components
+  const { theme, setTheme } = useContext(ThemeContext);
+
+  return (
+    <div>
+      <p>Current Theme: {theme}</p>
+      <button onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>
+        Toggle Theme
+      </button>
+    </div>
+  );
+};
 ```
 
 ## Conclusion
 
-Congratulations! You've now learned the basics of `useReducer`. This powerful hook will become a valuable tool as you continue to build more sophisticated React applications. Feel free to experiment and apply this knowledge to your projects, and don't hesitate to explore more advanced use cases as you become more comfortable with React development. Happy coding!
+Congratulations! You've now learned about the Context API and how to use the `useContext` hook. This knowledge will empower you to manage state and share values efficiently across your React application. Feel free to experiment with different use cases and integrate context into your projects for cleaner and more maintainable code. Happy coding!
