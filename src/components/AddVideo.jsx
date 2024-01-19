@@ -10,7 +10,7 @@ const initialState = {
   views: "",
 };
 
-function AddVideo({ addNewVideos, updateVideo, editableVideo }) {
+function AddVideo({ dispatch, updateVideo, editableVideo }) {
   // State to manage input values for a new video
   const [videos, setVideos] = useState(initialState);
 
@@ -30,10 +30,9 @@ function AddVideo({ addNewVideos, updateVideo, editableVideo }) {
       alert("Enter Video Details First");
     } else {
       if (editableVideo) {
-        updateVideo(videos);
+        dispatch({ type: "UPDATE", payload: videos });
       } else {
-        // Call the parent component's function to add the new video
-        addNewVideos(videos);
+        dispatch({ type: "ADD", payload: videos });
       }
       // Reset form fields to initial state
       setVideos(initialState);

@@ -2,7 +2,7 @@ import PlayButton from "./PlayButton";
 import VideoContainer from "./VideoContainer";
 
 // Component for displaying a list of videos
-function VideoList({ videos, deleteVideo, editVideo }) {
+function VideoList({ videos, dispatch, editVideo }) {
   return (
     <>
       {/* Iterate over the list of videos and render VideoContainer */}
@@ -16,7 +16,7 @@ function VideoList({ videos, deleteVideo, editVideo }) {
           channel={video.channel}
           verified={video.verified}
           id={video.id}
-          deleteVideo={deleteVideo}
+          dispatch={dispatch}
           editVideo={editVideo}
         >
           <PlayButton

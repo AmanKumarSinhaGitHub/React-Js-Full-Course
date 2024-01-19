@@ -1,57 +1,48 @@
 import "./App.css";
 import videosDB from "./data/videosDB";
-import { useState } from "react";
+import { useReducer, useState } from "react";
 import AddVideo from "./components/AddVideo";
 import VideoList from "./components/VideoList";
 
 function App() {
   console.log("Rendering APP");
 
-  // State to manage the list of videos
-  const [videos, setVideos] = useState(videosDB);
-
   const [editableVideo, setEditableVideo] = useState(null);
 
-  // Function to add a new video to the list
-  function addNewVideos(newVideo) {
-    setVideos([...videos, { ...newVideo, id: videos.length + 1 }]);
-  }
+  const [videos, dispatch] = useReducer(videosReducer, videosDB);
 
-  // Function to add a new video to the list
-  function deleteVideo(id) {
-    setVideos(videos.filter((video) => video.id !== id));
+  // const [videos, setVideos] = useState(videosDB);
+
+  function videosReducer(videos, action) {
+    switch (action.type) {
+      case "ADD":
+        return [...videos, { ...action.payload, id: videos.length + 1 }];
+      case "UPDATE":
+        const index = videos.findIndex((v) => v.id === action.payload.id);
+        const vdeo = [...videos];
+        vdeo.splice(index, 1, action.payload);
+        setEditableVideo(null);
+        return vdeo;
+      case "DELETE":
+        return videos.filter((video) => video.id !== action.payload);
+      default:
+        return videos;
+    }
   }
 
   function editVideo(id) {
     setEditableVideo(videos.find((video) => video.id === id));
   }
 
-  function updateVideo(video) {
-    const index = videos.findIndex((v) => v.id === video.id);
-    const vdeo = [...videos];
-    vdeo.splice(index, 1, video);
-    setVideos(vdeo);
-    // Inital State
-    setEditableVideo(null);
-  }
-
   // Render the main application
   return (
     <>
       {/* Component for adding new videos */}
-      <AddVideo
-        addNewVideos={addNewVideos}
-        editableVideo={editableVideo}
-        updateVideo={updateVideo}
-      />
+      <AddVideo dispatch={dispatch} editableVideo={editableVideo} />
 
       <div className="App">
         {/* Component for displaying the list of videos */}
-        <VideoList
-          deleteVideo={deleteVideo}
-          editVideo={editVideo}
-          videos={videos}
-        />
+        <VideoList dispatch={dispatch} editVideo={editVideo} videos={videos} />
       </div>
     </>
   );

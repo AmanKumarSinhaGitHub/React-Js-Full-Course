@@ -9,7 +9,7 @@ function VideoContainer({
   time,
   verified,
   children,
-  deleteVideo,
+  dispatch,
   editVideo,
 }) {
   return (
@@ -17,7 +17,10 @@ function VideoContainer({
       {console.log("Rendering VIDEOS")}
       <div className="container">
         <div className="pic">
-          <button className="close" onClick={() => deleteVideo(id)}>
+          <button
+            className="close"
+            onClick={() => dispatch({ type: "DELETE", payload: id })}
+          >
             X
           </button>
 
